@@ -1,32 +1,59 @@
 <script lang="ts">
-	import Test from "./components/Test.svelte"
+	import Grid from "./components/molecules/grid.svelte";
+	import Tags from "./components/molecules/tags.svelte";
+	import type { Tag } from "./components/molecules/tags.svelte";
+	import PostName from "./components/molecules/post-name.svelte";
+import ReturnButton from "./components/molecules/return-button.svelte";
+	
 	export let name: string;
+
+	const postName = "Test"
+	const tags: Tag[] = [
+		{
+			label: "test",
+			url: "",
+		},
+		{
+			label: "test",
+			url: "",
+		},
+		{
+			label: "test",
+			url: "",
+		}
+	]
+
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<Test/>
+	<Grid>
+		<ReturnButton text="Home"/>
+		<PostName text={postName}/>
+		<Tags data={tags}/>
+
+		<!-- <PostName text={postName}></PostName>
+		<p style="grid-area: block;"></p>
+		-->
+		
+		<h1 style="grid-area: title;">Page TitleVestibulum ante ipsum primis in faucibus orci luctus et ultrices.</h1>
+		<div style="grid-area: content;">
+			<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla quis lorem ut libero malesuada feugiat. Nulla porttitor accumsan tincidunt. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
+			<ul class="">
+				<li>test1</li>
+				<li>test2</li>
+				<li>test3</li>
+			</ul>
+			<ol>
+				<li>test1</li>
+				<li>test2</li>
+				<li>test3</li>
+			</ol>
+		</div>
+	</Grid>
 </main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+<style lang="scss">
+  	@import "./static/core/global";
+	@import "./static/core/atoms";
+	
 </style>

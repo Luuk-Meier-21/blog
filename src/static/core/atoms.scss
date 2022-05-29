@@ -1,0 +1,72 @@
+// Atoms.scss file:
+// Atoms are the basic building blocks of matter. Applied to web interfaces, 
+// atoms are our HTML tags, such as a form label, an input or a button.
+
+// Atoms mosty consist of html elements and are therefore defined as a scss style.
+// Created atoms can be found in the ./component/atoms directory.
+
+@import "./_settings";
+
+:global(body) {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--leading);
+    letter-spacing: var(--kerning);
+    background-color: var(--background);
+    color: var(--color);
+    margin: 0;
+    padding:  #{$font-multiplier / 2}rem 0.5rem;
+}
+
+:global(p) {
+    margin-bottom: var(--leading);
+    max-width: $max-paragraph-width;
+}
+
+:global(h1) {
+    font-size: #{$font-multiplier}rem;
+}
+
+:global(ul) {
+    max-width: $max-paragraph-width;
+
+    :global(li) {
+        box-shadow: 0 1px 0 0 var(--color);
+        padding-left: var(--font-size);
+        padding-left: 2rem;
+    }
+}
+
+:global(ul.horizontal) {
+    display: inline;
+
+    :global(li) {
+        display: inline;
+        box-shadow: unset;
+        padding: unset;
+    }
+}
+
+:global(ol) {
+    max-width: $max-paragraph-width;
+    counter-reset: item;
+    list-style-type: none;
+    padding: 0;
+
+    :global(li) { 
+        display: block; 
+        box-shadow: 0 1px 0 0 var(--color);
+
+        :global(&:before) { 
+            content: counter(item, decimal-leading-zero) "."; 
+            display: inline-block;
+            counter-increment: item;
+            width: 2rem;
+            opacity: .15;
+        }
+    }
+}
+
+:global(.small) {
+    font-size: .8rem;
+}

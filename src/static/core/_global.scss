@@ -1,0 +1,47 @@
+@import "./_settings";
+
+:global(:root) {
+    --font-family: helvetica, "helvetica", arial, sans-serif;
+    --font-size: #{$font-size};
+    --font-title: #{$font-size * $font-multiplier};
+    --kerning: #{$font-kerning};
+    --leading: #{$font-leading};
+    --color: #{$text-color};
+    --background: #{$bg-color};
+    --row-height: #{$row-height};
+    --row-gap: #{$font-leading};
+    --col-gap: #{$font-size};
+}
+
+:global(*, *::before, *::after) {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:global(a) {
+    text-decoration: none;
+    color: inherit;
+}
+
+:global(button) {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    background-color: inherit;
+    color: inherit;
+}
+
+:global(ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+:global(h1, h2, h3, h4, h5, h6, p){
+    margin: 0;
+    padding: 0;
+    font-weight: inherit;
+    font-size: inherit;
+}
