@@ -3,10 +3,10 @@
 :global(:root) {
     --font-family: helvetica, "helvetica", arial, sans-serif;
     --font-size: #{$font-size};
-    --font-title: #{$font-size * $font-multiplier};
     --kerning: #{$font-kerning};
     --leading: #{$font-leading};
     --color: #{$text-color};
+    --accent: #{$accent-color};
     --background: #{$bg-color};
     --row-height: #{$row-height};
     --row-gap: #{$font-leading};

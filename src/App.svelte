@@ -1,9 +1,8 @@
 <script lang="ts">
 	import Grid from "./components/molecules/grid.svelte";
-	import Tags from "./components/molecules/tags.svelte";
 	import type { Tag } from "./components/molecules/tags.svelte";
-	import PostName from "./components/molecules/post-name.svelte";
-import ReturnButton from "./components/molecules/return-button.svelte";
+import Nav from "./components/organisms/nav.svelte";
+import Post from "./components/organisms/post.svelte";
 	
 	export let name: string;
 
@@ -22,33 +21,15 @@ import ReturnButton from "./components/molecules/return-button.svelte";
 			url: "",
 		}
 	]
+	const content = "<p>Quisque velit nisi, pretium ut <a>lacinia</a> in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit.</p>";
+	const title = "Tijdens mijn oude web develoment stage bij Foster vond ik het altijd erg fijn dat ik alles waar ik tegenaan liep meteen kon vragen. Het direct oplossen van mijn probleem leek mij erg handig en juist efficent. ";
 
 </script>
 
 <main>
 	<Grid>
-		<ReturnButton text="Home"/>
-		<PostName text={postName}/>
-		<Tags data={tags}/>
-
-		<!-- <PostName text={postName}></PostName>
-		<p style="grid-area: block;"></p>
-		-->
-		
-		<h1 style="grid-area: title;">Page TitleVestibulum ante ipsum primis in faucibus orci luctus et ultrices.</h1>
-		<div style="grid-area: content;">
-			<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla quis lorem ut libero malesuada feugiat. Nulla porttitor accumsan tincidunt. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
-			<ul class="">
-				<li>test1</li>
-				<li>test2</li>
-				<li>test3</li>
-			</ul>
-			<ol>
-				<li>test1</li>
-				<li>test2</li>
-				<li>test3</li>
-			</ol>
-		</div>
+		<Nav postName="test" tags={tags}/>
+		<Post title={title} content={content}></Post>
 	</Grid>
 </main>
 

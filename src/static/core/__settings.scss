@@ -1,15 +1,17 @@
-$font-size: 18px;
+$font-size: 15px;
 
 // Font:
-$font-multiplier: 1.8;
-$font-kerning: -0.01em;
-$font-leading: $font-size * 1.7;
+$font-kerning: 0.04em;
+$font-leading: $font-size * 1.4;
+$font-leading-large: $font-leading * 2;
 
 // Text:
-$text-color: #000000;
+$text-color: #b9b9b9;
+$accent-color: #ffffff;
 
 // Colors:
-$bg-color: #F4F1EB;
+$bg-color: #000000;
+
 
 // Paragraphs:
 $max-paragraph-width: 35rem;
