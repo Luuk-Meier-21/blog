@@ -11,8 +11,12 @@
 	{/each}
 </ul>
 
-<style>
+<style lang="scss">
     .posts {
         grid-area: title;
+
+        &__post {
+        
+        }
     }
 </style>

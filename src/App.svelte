@@ -5,6 +5,7 @@
 	import Loader from "./components/organisms/loader.organism.svelte"
 	import Home from "./components/templates/home.template.svelte";
 	import { Router, Route, Link } from "svelte-routing";
+import NotFound from "./components/templates/not-found.template.svelte";
 	
 	export let url = "";
 </script>
@@ -15,6 +16,7 @@
 			<Loader>
 				<Route path="/"><Home/></Route> 
 				<Route path="posts/:postSlug" component={PostTemplate}></Route>
+				<Route path="*"><NotFound/></Route>
 			</Loader>
 		</Grid>
 	</Router>

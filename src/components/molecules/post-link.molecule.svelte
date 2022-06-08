@@ -19,6 +19,11 @@ import type { PostData } from "../organisms/post.organism.svelte";
 
 <style lang="scss"> 
     .post-link {
+
+        &:first-child {
+            padding-top: var(--single);
+        }
+
         display: block;
         // box-shadow: 0px 1px 0px 0px var(--color);
 
