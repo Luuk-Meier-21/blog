@@ -1,0 +1,19 @@
+// Protons.scss file:
+// Protons make up part of atoms of the nuclei of a atom.
+// Applied to web interfaces, protons are our global css variables.
+
+@import "./core/_settings";
+
+:global(:root) {
+    --font-family:  helvetica, "helvetica", arial, sans-serif;
+    --font-size:    #{ $font-size };
+    --kerning:      #{ $font-kerning };
+    --leading:      #{ $font-leading };
+    --line:         #{ $font-leading };
+    --color:        #{ $text-color };
+    --accent:       #{ $accent-color };
+    --background:   #{ $bg-color };
+    --row-height:   #{ $row-height };
+    --row-gap:      #{ $font-leading };
+    --col-gap:      #{ $font-size };
+}

@@ -5,7 +5,7 @@
 // Atoms mosty consist of html elements and are therefore defined as a scss style.
 // Created atoms can be found in the ./component/atoms directory.
 
-@import "./_settings";
+@import "./core/_settings";
 
 :global(body) { // Body atom:
     font-family: var(--font-family);
@@ -20,20 +20,23 @@
 
 :global(p) { // Paragraph atom:
     margin-bottom: var(--leading);
-    max-width: $max-paragraph-width;
 }
 
-:global(h1) { // Heading 1 atom:
-    font-size: 1.9rem;
+:global(h1), :global(h2) { // Heading atoms:
+    font-size: 2.4rem;
     letter-spacing: -0.03em;
     font-weight: 700;
-    color: var(--accent);
+    color: inherit;
+    stroke: inherit;
     line-height: $font-leading-large;
 }
 
-:global(ul) { // Unordered list atom:
-    max-width: $max-paragraph-width;
+:global(.is--accent) {
+    color: var(--accent);
+    stroke: var(--accent);
+}
 
+:global(ul.list) { // Unordered list atom:
     :global(li) {
         box-shadow: 0 1px 0 0 var(--color);
         padding-left: var(--font-size);
@@ -41,7 +44,7 @@
     }
 }
 
-:global(ul.horizontal) { // Unordered list atom (modifier horizontal):
+:global(ul.list-horizontal) { // Unordered list atom (modifier horizontal):
     display: inline;
 
     :global(li) {
@@ -51,33 +54,34 @@
     }
 }
 
-:global(ol) { // Ordered list atom:
-    max-width: $max-paragraph-width;
-    counter-reset: item;
-    list-style-type: none;
-    padding: 0;
+// :global(ol) { // Ordered list atom:
+//     counter-reset: item;
+//     list-style-type: none;
+//     padding: 0;
 
-    :global(li) { 
-        display: block; 
-        box-shadow: 0 1px 0 0 var(--color);
+//     :global(li) { 
+//         display: block; 
+//         box-shadow: 0 1px 0 0 var(--color);
 
-        :global(&:before) { 
-            content: counter(item, decimal-leading-zero) "."; 
-            display: inline-block;
-            counter-increment: item;
-            width: 2rem;
-            opacity: .15;
-        }
-    }
-}
+//         :global(&:before) { 
+//             content: counter(item, decimal-leading-zero) "."; 
+//             display: inline-block;
+//             counter-increment: item;
+//             width: 2rem;
+//             opacity: .15;
+//         }
+//     }
+// }
 
 :global(a) { // Anchor atom:
     stroke: var(--color);
     box-shadow: 0px 1px 0px 0px var(--color);
 
     &:hover {
-        box-shadow: unset;
-        color: var(--accent);
+        box-shadow: 0px 1px 0px 0px var(--accent);
+        background-color: var(--accent);
+        color: var(--background);
+        stroke: var(--background);
     }
 }
 
@@ -92,4 +96,12 @@
         background-color: var(--accent);
         box-shadow: 0px 0px 0px 1px var(--accent);
     }
+}
+
+:global(.status-title) {
+    grid-area: title;
+}
+
+:global(.status-content) {
+    grid-area: content;
 }

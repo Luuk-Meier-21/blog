@@ -12,7 +12,7 @@
     let areaVar = `--grid-area: ${area};`
 </script>
 
-<ul class="small tags horizontal" style={areaVar}>
+<ul class="small tags list-horizontal" style={areaVar}>
     {#each data as tag, i}
         <li>
             <a href={tag.url}>{tag.label}</a>{(i < data.length - 1) ? ", " : ""}

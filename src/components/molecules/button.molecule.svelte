@@ -1,6 +1,6 @@
  
 <script lang="ts">
-    import Arrow from "../atoms/arrow.svelte";
+    import Arrow from "../atoms/arrow.atom.svelte";
 
     export let text: string;
     export let href: string;

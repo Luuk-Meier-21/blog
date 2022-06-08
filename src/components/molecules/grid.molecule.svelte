@@ -1,4 +1,7 @@
 
+<script lang="ts">
+</script>
+
 <main class="grid">
     <slot></slot>
 </main>
@@ -7,9 +10,9 @@
     .grid {
         display: grid;
         grid-template-areas: 
-            "back   name        tags        ."
-            ".      title       title       ."
-            ".      content     content     .";
+            "back   name        name        tags        tags        ."
+            ".      title       title       title       title       ."
+            ".      content     content     .           .           .";
         grid-auto-rows: minmax(var(--row-height), auto);  
         grid-auto-columns: minmax(min-content, 1fr);
         column-gap: var(--row-gap);

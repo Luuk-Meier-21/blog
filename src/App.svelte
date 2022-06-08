@@ -1,40 +1,27 @@
+
 <script lang="ts">
-	import Grid from "./components/molecules/grid.svelte";
-	import type { Tag } from "./components/molecules/tags.svelte";
-import Nav from "./components/organisms/nav.svelte";
-import Post from "./components/organisms/post.svelte";
+	import Grid from "./components/molecules/grid.molecule.svelte";
+	import PostTemplate from "./components/templates/post.template.svelte"
+	import Loader from "./components/organisms/loader.organism.svelte"
+	import Home from "./components/templates/home.template.svelte";
+	import { Router, Route, Link } from "svelte-routing";
 	
-	export let name: string;
-
-	const postName = "Test"
-	const tags: Tag[] = [
-		{
-			label: "test",
-			url: "",
-		},
-		{
-			label: "test",
-			url: "",
-		},
-		{
-			label: "test",
-			url: "",
-		}
-	]
-	const content = "<p>Quisque velit nisi, pretium ut <a>lacinia</a> in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit.</p>";
-	const title = "Tijdens mijn oude web develoment stage bij Foster vond ik het altijd erg fijn dat ik alles waar ik tegenaan liep meteen kon vragen. Het direct oplossen van mijn probleem leek mij erg handig en juist efficent. ";
-
+	export let url = "";
 </script>
 
-<main>
-	<Grid>
-		<Nav postName="test" tags={tags}/>
-		<Post title={title} content={content}></Post>
-	</Grid>
-</main>
+<div>
+	<Router url={url}>
+		<Grid>
+			<Loader>
+				<Route path="/"><Home/></Route> 
+				<Route path="posts/:postSlug" component={PostTemplate}></Route>
+			</Loader>
+		</Grid>
+	</Router>
+</div>
 
 <style lang="scss">
   	@import "./static/core/global";
-	@import "./static/core/atoms";
-	
+	@import "./static/protons";
+	@import "./static/atoms";
 </style>
