@@ -1,15 +1,17 @@
 <script lang="ts">
     import Tags from "../molecules/tags.molecule.svelte";
 	import PostName from "../molecules/post-name.molecule.svelte";
-	import ReturnButton from "../molecules/button.molecule.svelte";
+	import ReturnButton from "../molecules/home-button.molecule.svelte";
     import type { Tag } from "../molecules/tags.molecule.svelte";
 
     
     export let label: string;
-    export let tags: Tag[];
+    export let tags: Tag[] = undefined;
 
+    let isHome = window.location.pathname === "/";
+    console.log(isHome)
 </script>
 
-<ReturnButton href="/" text="Home"/>
+{#if !isHome}   <ReturnButton href="/" text="Home"/> {/if}
 <PostName text={label}/>
-<Tags data={tags}/>
+{#if tags}      <Tags data={tags}/>     {/if}

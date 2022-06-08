@@ -19,9 +19,7 @@
     <Post data={currPost}/>
 {/if}
 
-{#if !isFound}
-   <NotFound></NotFound>
-{/if}
+{#if !isFound} <NotFound/> {/if}
 
 <style lang="scss">
     

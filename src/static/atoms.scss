@@ -8,6 +8,16 @@
 @import "./core/_settings";
 
 :global(body) { // Body atom:
+    &::-webkit-scrollbar {
+        width: 6px;
+      }
+    &::-webkit-scrollbar-thumb {
+        background: var(--color);
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--background);
+    }
+
     font-family: var(--font-family);
     font-size: var(--font-size);
     line-height: var(--leading);

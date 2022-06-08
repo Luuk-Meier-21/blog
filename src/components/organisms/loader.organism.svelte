@@ -1,4 +1,3 @@
-
 <script lang="ts">
 	import { setContext } from "svelte";
 	import type { PostData } from "../organisms/post.organism.svelte";
@@ -18,15 +17,9 @@
 </script>
 
 {#await fetchPosts}
-    <p class="status">Looking for post...</p>
+    <p class="status-content">Looking for post...</p>
 {:then posts}
     <slot></slot>
 {:catch error}
-    <p class="status">An error occurred.</p>
+    <p class="status-content">An error occurred.</p>
 {/await}
-
-<style>
-	.status {
-		grid-area: content;
-	}
-</style>

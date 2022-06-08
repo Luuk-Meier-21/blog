@@ -9,12 +9,12 @@
     let areaVar = `--grid-area: ${area};`
 </script>
 
-<div class="return-button small" style={areaVar}>
-    <a href={href} class="return-button__inner as-button"><Arrow/>{text}</a>
+<div class="home-button" style={areaVar}>
+    <a href={href} class="home-button__inner"><Arrow/>{text}</a>
 </div>
 
 <style lang="scss">
-    .return-button {
+    .home-button {
         position: relative;
     
         &__inner {
