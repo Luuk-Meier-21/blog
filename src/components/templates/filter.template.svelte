@@ -2,32 +2,23 @@
     import type { Tag } from "../molecules/tags.molecule.svelte";
     import Nav from "../organisms/nav.organism.svelte";
     import Posts from "../organisms/posts.organism.svelte";
-    import type { ApiRef } from "../organisms/loader.organism.svelte";
+    import type { ApiData, ApiRef } from "../organisms/loader.organism.svelte";
     import Loader from "../organisms/loader.organism.svelte";
     import NotFound from "./not-found.template.svelte";
+    import { getContext } from "svelte";
 
     export let tagSlug: string;
 
-    interface Data {
-        tags?: Tag[];
-    }
-
-    const tagsRef: ApiRef = {
-        url: "https://api-eu-west-2.graphcms.com/v2/cl3ossjir6ju301z6grqwfdf9/master?query=query%20MyQuery%20%7B%0A%20%20tags%20%7B%0A%20%20%20%20label%0A%20%20%20%20url%0A%20%20%20%20blogPosts%20%7B%0A%20%20%20%20%20%20slug%0A%20%20%20%20%20%20title%0A%20%20%20%20%20%20content%20%7B%0A%20%20%20%20%20%20%20%20html%0A%20%20%20%20%20%20%20%20text%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20tags%20%7B%0A%20%20%20%20%20%20%20%20label%0A%20%20%20%20%20%20%20%20url%0A%20%20%20%20%20%20%20%20blogPosts%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&operationName=MyQuery",
-        queryName: "tags"
-    }
-    let data: Data = {};
-    $: tags = data.tags ? data.tags : [];
-    $: currTag = tags.find((tag) => tag.url == tagSlug);
-    $: filteredTags = tags.filter((tag) => tag.url != currTag.url);
-    $: isFound = currTag !== undefined;
+    const {tags, blogPosts} = getContext<ApiData>("api");
+        console.log(tags)
+        $: currTag = tags.find((tag) => tag.url == tagSlug);
+        $: filteredTags = tags.filter((tag) => tag.url != currTag.url);
+        $: isFound = currTag !== undefined;
 </script>
 
-<Loader ref={tagsRef} bind:data={data}>
-    {#if isFound}
-        <Nav label={`Filtered results for <em> ${currTag.label}</em>`} tagLabel="Filter: " tags={filteredTags}/>
-        <Posts posts={currTag.blogPosts}/>
-    {/if}
+{#if isFound}
+    <Nav label={`Filtered results for <em> ${currTag.label}</em>`} tagLabel="Filter: " tags={filteredTags}/>
+    <Posts posts={currTag.blogPosts}/>
+{/if}
 
-    {#if !isFound} <NotFound/> {/if}
-</Loader>
+{#if !isFound} <NotFound/> {/if}

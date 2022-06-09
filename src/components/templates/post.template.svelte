@@ -7,8 +7,8 @@
 
     export let postSlug: string;
 
-    const posts: PostData[] = getContext('posts');
-    $: currPost = posts.find((post) => post.slug == postSlug);
+    const {blogPosts} = getContext("api");
+    $: currPost = blogPosts.find((post) => post.slug == postSlug);
     $: isFound = currPost !== undefined;
 </script>
 
