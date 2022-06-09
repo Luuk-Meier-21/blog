@@ -4,7 +4,7 @@
 
     export let text: string;
     export let href: string;
-    export let area: string = "name";
+    export let area: string = "back";
 
     let areaVar = `--grid-area: ${area};`
 </script>
@@ -16,6 +16,7 @@
 <style lang="scss">
     .home-button {
         position: relative;
+        grid-area: var(--grid-area);
     
         &__inner {
             position: fixed;

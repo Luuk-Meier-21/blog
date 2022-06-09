@@ -10,7 +10,7 @@
     .grid {
         display: grid;
         grid-template-areas: 
-            "back   name        name        tags        tags        ."
+            "back   label       label       tags        tags        ."
             ".      title       title       title       title       ."
             ".      content     content     .           .           .";
         grid-auto-rows: minmax(var(--row-height), auto);  

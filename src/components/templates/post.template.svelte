@@ -1,5 +1,3 @@
-
-
 <script lang="ts">
     import { getContext } from "svelte";
     import Nav from "../organisms/nav.organism.svelte";

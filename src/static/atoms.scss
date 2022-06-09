@@ -46,6 +46,12 @@
     stroke: var(--accent);
 }
 
+:global(em) {
+    color: var(--accent);
+    stroke: var(--accent);
+    font-style: normal;
+}
+
 :global(ul.list) { // Unordered list atom:
     :global(li) {
         box-shadow: 0 1px 0 0 var(--color);
