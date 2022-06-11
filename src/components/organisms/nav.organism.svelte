@@ -3,8 +3,7 @@
 	import PostName from "../molecules/post-name.molecule.svelte";
 	import ReturnButton from "../molecules/home-button.molecule.svelte";
     import type { Tag } from "../molecules/tags.molecule.svelte";
-import { Route } from "svelte-routing";
-
+    import { Route } from "svelte-routing";
     
     export let label: string;
     export let tags: Tag[] = undefined;

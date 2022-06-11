@@ -1,6 +1,6 @@
 <script lang="ts">
     import Arrow from "../atoms/arrow.atom.svelte";
-import type { PostData } from "../organisms/post.organism.svelte";
+    import type { PostData } from "../organisms/post.organism.svelte";
     import type { Tag } from "./tags.molecule.svelte";
 
     const truncateToCount = (str: string, wordCount: number) => str.replace(/\s+/g," ").split(/(?=\s)/gi).slice(0, wordCount).join('');
