@@ -16,7 +16,11 @@
         grid-area: title;
 
         &__post {
-        
+            padding-top: var(--single);
+
+            &:first-child {
+                padding-top: unset;
+            }
         }
     }
 </style>

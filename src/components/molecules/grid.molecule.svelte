@@ -23,7 +23,7 @@
     @media only screen and (max-width: 800px) {
         .grid {
             grid-template-areas: 
-                "back           name        tags        tags        "
+                "back           label       tags        tags        "
                 "title          title       title       title       "
                 "content        content     content     content     ";
         }
