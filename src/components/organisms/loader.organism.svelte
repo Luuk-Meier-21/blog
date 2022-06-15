@@ -5,14 +5,16 @@
     };
 
     export interface ApiData {
-        tags?: Tag[];
-        blogPosts?: PostData[];
+        tags: Tag[];
+        blogPosts: PostData[];
+        images: ImageData[];
     }
 </script>
 
 <script lang="ts">
     import { setContext } from "svelte";
     import { gqlFetch, gqlQueryResolver } from "../../utilities/queries";
+    import type { ImageData } from "../molecules/image.molecule.svelte";
     import type { Tag } from "../molecules/tags.molecule.svelte";
     import type { PostData } from "./post.organism.svelte";
 
@@ -23,13 +25,15 @@
 
     let data: ApiData = {
         tags: [],
-        blogPosts: []
+        blogPosts: [],
+        images: []
     };
 
 	const fetchPosts = (async () => {
         const response = await gqlFetch((q) => [
             q.tags,
-            q.blogPosts
+            q.blogPosts,
+            q.images
         ])
         const json = await response.json();
         console.log(json)

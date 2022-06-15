@@ -32,6 +32,14 @@
     margin-bottom: var(--leading);
 }
 
+:global(figcaption) {
+    font-style: italic;
+}
+
+:global(p.is--small), :global(a.is--small), :global(figcaption.is--small) {
+    font-size: .75rem;
+}
+
 :global(h1), :global(h2) { // Heading atoms:
     font-size: 2.4rem;
     letter-spacing: -0.03em;

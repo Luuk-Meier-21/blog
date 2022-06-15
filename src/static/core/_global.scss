@@ -32,3 +32,8 @@
     font-weight: inherit;
     font-size: inherit;
 }
+
+:global(figure){
+    margin: 0;
+    padding: 0;
+}

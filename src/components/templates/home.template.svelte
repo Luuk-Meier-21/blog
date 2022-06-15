@@ -6,16 +6,21 @@
     import type { Tag } from "../molecules/tags.molecule.svelte";
     import type { PostData } from "../organisms/post.organism.svelte";
     import { getContext } from "svelte";
+    import Image from "../molecules/image.molecule.svelte";
 
-    const {tags, blogPosts} = getContext<ApiData>("api");
+    const {tags, blogPosts, images} = getContext<ApiData>("api");
+    $: image = images[0];
 </script>
 
 <Nav label="Luuk Meier" tagLabel="Filter: " tags={tags}/>
-<Posts posts={blogPosts}/>
+<div class="img">
+    <Image src={image.img.url} alt={image.alt} caption={image.caption}/>
+</div>
+<!-- <Posts posts={blogPosts}/> -->
 
 
 <style lang="scss">
-    .home {
-        grid-area: title;
+    .img {
+        grid-area: content;
     }
 </style>

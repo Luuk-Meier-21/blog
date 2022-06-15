@@ -2,6 +2,7 @@ interface gqlQModal {
     tags: string;
     tagsSimple: string;
     blogPosts: string;
+    images: string;
 }
 const gqlUrl: string = "https://api-eu-west-2.graphcms.com/v2/cl3ossjir6ju301z6grqwfdf9/master";
 const gqlQ: gqlQModal = {
@@ -41,6 +42,15 @@ const gqlQ: gqlQModal = {
                 html
                 text
             }
+        }
+    `,
+    images: `
+        images {
+            img {
+            url
+            }
+            caption
+            alt
         }
     `
 }
