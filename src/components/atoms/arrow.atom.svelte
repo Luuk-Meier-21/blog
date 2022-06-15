@@ -26,7 +26,8 @@
         &__icon {
             display: inline-flex;
             height: .75em;
-            transform: translateY(.05em);
+            // transform: translateY(.05em);
+            vertical-align: baseline;
             width: auto;
         }
         

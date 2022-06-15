@@ -3,7 +3,7 @@ interface gqlQModal {
     tagsSimple: string;
     blogPosts: string;
 }
-const gqlUrl = "https://api-eu-west-2.graphcms.com/v2/cl3ossjir6ju301z6grqwfdf9/master";
+const gqlUrl: string = "https://api-eu-west-2.graphcms.com/v2/cl3ossjir6ju301z6grqwfdf9/master";
 const gqlQ: gqlQModal = {
     tags: `
         tags {
@@ -42,7 +42,7 @@ const gqlQ: gqlQModal = {
                 text
             }
         }
-    `,
+    `
 }
 export const gqlFetch = async (c: (q: gqlQModal) => string[]) =>
     fetch(gqlUrl, {
